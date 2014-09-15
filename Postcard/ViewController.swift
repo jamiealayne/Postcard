@@ -28,7 +28,9 @@ class ViewController: UIViewController {
 
 	@IBAction func sendMailPressed(sender: UIButton) {
 		messageLabel.hidden = false
-		messageLabel.text = messageTextField.text
+		messageLabel.text = "\"\(messageTextField.text)\"\nSent from: \(nameTextField.text)"
+		nameTextField.text = ""
+		nameTextField.resignFirstResponder()
 		messageTextField.text = ""
 		messageTextField.resignFirstResponder()
 		messageLabel.textColor = UIColor.redColor()
