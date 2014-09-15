@@ -14,6 +14,7 @@ class ViewController: UIViewController {
 	@IBOutlet var nameTextField: UITextField!
 	@IBOutlet var messageTextField: UITextField!
 	@IBOutlet var mailButton: UIButton!
+	@IBOutlet var nameLabel: UILabel!
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -28,7 +29,10 @@ class ViewController: UIViewController {
 
 	@IBAction func sendMailPressed(sender: UIButton) {
 		messageLabel.hidden = false
-		messageLabel.text = "\"\(messageTextField.text)\"\nSent from: \(nameTextField.text)"
+		messageLabel.text = messageTextField.text
+		nameLabel.hidden = false
+		nameLabel.text = "Sent by: \(nameTextField.text)"
+		nameLabel.textColor	= UIColor.blueColor()
 		nameTextField.text = ""
 		nameTextField.resignFirstResponder()
 		messageTextField.text = ""
